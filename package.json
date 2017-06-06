@@ -1,0 +1,23 @@
+{
+  "name": "capstone-server",
+  "version": "1.0.0",
+  "description": "This hosts the very simple node/express-based server that will hand back json'ified data for session data counts  It is required as the server for capstone-esposito and needs to be started first.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisesposito/capstone-server.git"
+  },
+  "author": "chrisesposito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisesposito/capstone-server/issues"
+  },
+  "homepage": "https://github.com/chrisesposito/capstone-server#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mysql": "^2.13.0"
+  }
+}
