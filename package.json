@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "This hosts the very simple node/express-based server that will hand back json'ified data for session data counts  It is required as the server for capstone-esposito and needs to be started first.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scripts": {
+	"start": "react-scripts start"
   },
   "repository": {
     "type": "git",
