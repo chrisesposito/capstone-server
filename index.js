@@ -4,20 +4,6 @@ var mysql = require('mysql');
 var connection;
 
 
-app.get('/records/:datewanted', function(req, resp) {
-    var dateWanted = req.params.datewanted;
-    try
-    {
-	resp.json({requested: dateWanted});
-    }
-    catch(exception)
-    {
-	resp.send(404);
-    }
-  }
-);
-
-
 connection = mysql.createConnection(
                 {
                     host: 'localhost',
@@ -40,3 +26,26 @@ connection = mysql.createConnection(
 app.listen(3001);
 console.log("server listening on port 3001");
 
+app.get('/records/:datewanted', function(req, resp) {
+    var dateWanted = req.params.datewanted;
+    try
+    {
+        var sqlCmd = 'SELECT geodata FROM UsageRecords WHERE dateString=' + connection.escape(dateWanted);
+        console.log(sqlCmd);
+        connection.query(sqlCmd, function (error, results, fields) {
+            if (error) throw error;
+            else
+            {
+                var jsonResult = JSON.parse(results[0].geodata);
+                resp.json(jsonResult);
+            }
+        
+        });
+	//resp.json({requested: dateWanted});
+    }
+    catch(exception)
+    {
+	resp.sendStatus(404);
+    }
+  }
+);
